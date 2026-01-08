@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sondi"
+dynamic = ["version"]
+description = "Read radio sounding data from FMI Open Data"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "FMI Open Development" },
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy",
+    "pandas",
+    "xarray",
+    "requests",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+]
+
+[project.urls]
+Homepage = "https://github.com/fmidev/sondi"
+Repository = "https://github.com/fmidev/sondi"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/sondi/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sondi"]
